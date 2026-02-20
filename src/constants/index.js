@@ -168,67 +168,67 @@ const testimonials = [
 
 const projects = [
   {
-    name: "Car Rent",
+    name: "Connect App",
     description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+      "lorem epsum",
     tags: [
       {
-        name: "react",
+        name: "React-native",
         color: "blue-text-gradient",
       },
       {
-        name: "mongodb",
+        name: "Mongodb",
         color: "green-text-gradient",
       },
       {
-        name: "tailwind",
+        name: "Nodejs",
         color: "pink-text-gradient",
       },
     ],
     image: carrent,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/IgorRaiad0/connect_api",
   },
   {
-    name: "Job IT",
+    name: "Sistema de Votação Web",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "lorem epsum",
     tags: [
       {
-        name: "react",
+        name: "Vuejs",
         color: "blue-text-gradient",
       },
       {
-        name: "restapi",
+        name: "PotgreeSQL",
         color: "green-text-gradient",
       },
       {
-        name: "scss",
+        name: "Nodejs",
         color: "pink-text-gradient",
       },
     ],
     image: jobit,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/IgorRaiad0/Votacao_backend",
   },
   {
-    name: "Trip Guide",
+    name: "Pocket Perssoal",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      "Lorem epsum",
     tags: [
       {
-        name: "nextjs",
+        name: "React-Native",
         color: "blue-text-gradient",
       },
       {
-        name: "supabase",
+        name: "Axios",
         color: "green-text-gradient",
       },
       {
-        name: "css",
+        name: "Gemini-API",
         color: "pink-text-gradient",
       },
     ],
     image: tripguide,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/IgorRaiad0/Pocket-Personal-Trainer-APP",
   },
 ];
 
