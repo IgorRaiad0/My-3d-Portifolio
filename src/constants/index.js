@@ -19,6 +19,7 @@ import {
   starbucks,
   tesla,
   shopify,
+  ifma,
   carrent,
   jobit,
   tripguide,
@@ -27,15 +28,15 @@ import {
 
 export const navLinks = [
   {
-    id: "about",
+    id: "sobre",
     title: "Sobre",
   },
   {
-    id: "work",
+    id: "projetos",
     title: "Projetos",
   },
   {
-    id: "contact",
+    id: "contato",
     title: "Contato",
   },
 ];
@@ -118,7 +119,7 @@ const experiences = [
   {
     title: "TECNOLOGO EM ANÁLISE E DESENVOLVIMENTO DE SISTEMAS",
     company_name: "Instituto Federal do Maranhão",
-    icon: starbucks,
+    icon: ifma,
     iconBg: "#383E56",
     date: " Cursando 6º Periódo",
     points: [
@@ -128,7 +129,7 @@ const experiences = [
   {
     title: "TÉCNICO EM AUTOMAÇÃO INDUSTRIAL",
     company_name: "Instituto Federal do Maranhão",
-    icon: tesla,
+    icon: ifma,
     iconBg: "#E6DEDD",
     date: "Setembro de 2021 - Março de 2023",
     points: [
