@@ -32,7 +32,7 @@ export const navLinks = [
   },
   {
     id: "work",
-    title: "Trabalho",
+    title: "Projetos",
   },
   {
     id: "contact",

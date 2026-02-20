@@ -11,15 +11,15 @@ const Hero = () => {
 
         <div className='flex flex-col justify-center items-center mt-5'>
 
-          <div className='w-5 h-5 rounded-full bg-[#915EFF]' />
-          <div className='w-1 sm:h-80 h-40 violet-gradient' />
+          <div className='w-5 h-5 rounded-full bg-[#0000E8]' />
+          <div className='w-1 sm:h-80 h-40 bg-gradient-to-b from-[#0000E8] to-transparent' />
 
         </div>
 
         <div>
 
           <h1 className={`${styles.heroHeadText} text-white`}>
-            Oi, sou <span className='text-[#915EFF]'>Igor</span>
+            Oi, sou <span className='text-[#0000E8]'>Igor</span>
           </h1>
 
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
@@ -33,11 +33,11 @@ const Hero = () => {
 
       <ComputersCanvas />
 
-      <div className='absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center'>
+      <div className='absolute xs:bottom-2 bottom-10 w-full flex justify-center items-center'>
 
         <a href='#about'>
 
-          <div className='w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2'>
+          <div className='w-[35px] h-[64px] rounded-3xl border-4 border-[#0000E8] flex justify-center items-start p-2 margin-top'>
 
             <motion.div
 
@@ -49,7 +49,7 @@ const Hero = () => {
                 repeat: Infinity,
                 repeatType: "loop",
               }}
-              className='w-3 h-3 rounded-full bg-secondary mb-1'
+              className='w-3 h-3 rounded-full bg-[#0000E8] mb-1'
             />
 
           </div>

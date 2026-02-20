@@ -7,6 +7,7 @@ import { github } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
+import { DesktopPCCanvas } from "./index";
 
 const ProjectCard = ({
   index,
@@ -75,6 +76,10 @@ const Works = () => {
         <h2 className={`${styles.sectionHeadText}`}>Projects.</h2>
       </motion.div>
 
+      <div className='w-full h-[200px] my-8'>
+        <DesktopPCCanvas />
+      </div>
+
       <div className='w-full flex'>
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
@@ -97,4 +102,4 @@ const Works = () => {
   );
 };
 
-export default SectionWrapper(Works, "");
+export default SectionWrapper(Works, "work");

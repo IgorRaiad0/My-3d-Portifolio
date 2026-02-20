@@ -1,14 +1,27 @@
-import React, { Suspense, useEffect, useState } from "react";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
+import React, { Suspense, useEffect, useState, useRef } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { OrbitControls, Preload, useGLTF, useAnimations } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
 
 const Computers = ({ isMobile }) => {
-  const computer = useGLTF("./desktop_pc/scene.gltf");
+  const group = useRef();
+  const { scene, animations } = useGLTF("./oldComputer/scene.gltf");
+  const { actions } = useAnimations(animations, group);
+
+  useEffect(() => {
+    if (actions && Object.keys(actions).length > 0) {
+      Object.values(actions).forEach(action => action.play());
+    }
+  }, [actions]);
+
+  useFrame((state) => {
+    const t = state.clock.getElapsedTime();
+    group.current.rotation.y = Math.sin(t * 0.3) * 0.5;
+  });
 
   return (
-    <mesh>
+    <group ref={group}>
       <hemisphereLight intensity={3} groundColor='black' />
       <spotLight
         position={[-20, 50, 10]}
@@ -20,12 +33,12 @@ const Computers = ({ isMobile }) => {
       />
       <pointLight intensity={1} />
       <primitive
-        object={computer.scene}
-        scale={isMobile ? 0.7 : 0.75}
-        position={isMobile ? [0, -3, -2.2] : [0, -3.25, -1.5]}
-        rotation={[-0.01, -0.2, -0.1]}
+        object={scene}
+        scale={isMobile ? 1.2 : 1.5}
+        position={[0, -2.5, 0]}
+        rotation={[0, 0, 0]}
       />
-    </mesh>
+    </group>
   );
 };
 
@@ -55,17 +68,17 @@ const ComputersCanvas = () => {
 
   return (
     <Canvas
-      frameloop='demand'
+      frameloop='always'
       shadows
       dpr={[1, 2]}
-      camera={{ position: [20, 3, 5], fov: 25 }}
+      camera={{ position: [8, 6, 8], fov: 35 }}
       gl={{ preserveDrawingBuffer: true }}
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
           enableZoom={false}
-          maxPolarAngle={Math.PI / 2}
-          minPolarAngle={Math.PI / 2}
+          maxPolarAngle={Math.PI / 2.5}
+          minPolarAngle={Math.PI / 3}
         />
         <Computers isMobile={isMobile} />
       </Suspense>

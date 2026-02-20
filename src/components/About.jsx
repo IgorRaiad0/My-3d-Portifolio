@@ -43,8 +43,28 @@ const About = () => {
         <img 
           src={profilePhoto} 
           alt="Profile" 
-          className='w-48 h-64 rounded-2xl object-cover mb-6'
+          className='w-48 h-64 rounded-2xl object-cover mb-4'
         />
+        
+        <div className='flex gap-4 mb-6'>
+          <a 
+            href='https://github.com/seu-usuario' 
+            target='_blank' 
+            rel='noopener noreferrer'
+            className='text-white hover:text-[#0000E8] transition-colors text-2xl'
+          >
+            <i className='fab fa-github'></i>
+          </a>
+          <a 
+            href='https://linkedin.com/in/seu-usuario' 
+            target='_blank' 
+            rel='noopener noreferrer'
+            className='text-white hover:text-[#0000E8] transition-colors text-2xl'
+          >
+            <i className='fab fa-linkedin'></i>
+          </a>
+        </div>
+        
         <h2 className={styles.sectionHeadText}>Resumo.</h2>
       </motion.div>
 
