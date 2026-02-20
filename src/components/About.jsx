@@ -46,7 +46,7 @@ const About = () => {
           className='w-48 h-64 rounded-2xl object-cover mb-4'
         />
         
-        <div className='flex gap-4 mb-6'>
+        <div className='flex gap-4 items-center mb-6'>
           <a 
             href='https://github.com/seu-usuario' 
             target='_blank' 
@@ -55,6 +55,7 @@ const About = () => {
           >
             <i className='fab fa-github'></i>
           </a>
+
           <a 
             href='https://linkedin.com/in/seu-usuario' 
             target='_blank' 
@@ -63,9 +64,36 @@ const About = () => {
           >
             <i className='fab fa-linkedin'></i>
           </a>
+
+          <a 
+            href='https://linkedin.com/in/seu-usuario' 
+            target='_blank' 
+            rel='noopener noreferrer'
+            className='text-white hover:text-[#0000E8] transition-colors text-2xl'
+          >
+            <i className='fab fa-instagram'></i>
+          </a>
+
+          <a 
+            href='https://linkedin.com/in/seu-usuario' 
+            target='_blank' 
+            rel='noopener noreferrer'
+            className='text-white hover:text-[#0000E8] transition-colors text-2xl'
+          >
+            <i className='fab fa-youtube'></i>
+          </a>
+
+          <a 
+            href='/curriculo.pdf' 
+            download 
+            className='inline-flex items-center gap-2 border-2 border-[#fff] text-white hover:bg-[#0000E8] hover:border-[#0000E8] font-medium py-2 px-5 rounded-full transition-all ml-4'
+          >
+            <i className='fas fa-download'></i>
+            Download Currículo
+          </a>
         </div>
         
-        <h2 className={styles.sectionHeadText}>Resumo.</h2>
+        <h2 className={styles.sectionHeadText}>Resumo</h2>
       </motion.div>
 
       <motion.p
