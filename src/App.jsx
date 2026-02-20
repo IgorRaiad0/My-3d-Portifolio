@@ -17,10 +17,10 @@ const App =() => {
         <div className="bg-gradient-to-b from-blue-400 via-blue-900 to-primary">
           <About/>
         </div>
-        <Experience/>
-        <Tech/>
+        <Experience/> 
+       {/* <Tech/> */}
         <Works/>
-        <Feedbacks/>
+        {/* <Feedbacks/> */}
         <div className="relative z-0">
           <Contact/>
           <StarsCanvas/>

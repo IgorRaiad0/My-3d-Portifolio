@@ -48,7 +48,7 @@ const About = () => {
         
         <div className='flex gap-4 items-center mb-6'>
           <a 
-            href='https://github.com/seu-usuario' 
+            href='https://github.com/IgorRaiad0' 
             target='_blank' 
             rel='noopener noreferrer'
             className='text-white hover:text-[#0000E8] transition-colors text-2xl'
