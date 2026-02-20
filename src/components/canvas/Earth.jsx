@@ -1,14 +1,24 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
+import { OrbitControls, Preload, useGLTF, useAnimations } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
 
 const Earth = () => {
-  const earth = useGLTF("./planet/scene.gltf");
+  const group = useRef();
+  const { scene, animations } = useGLTF("./spaceMan/scene.gltf");
+  const { actions } = useAnimations(animations, group);
+
+  useEffect(() => {
+    if (actions && Object.keys(actions).length > 0) {
+      Object.values(actions).forEach(action => action.play());
+    }
+  }, [actions]);
 
   return (
-    <primitive object={earth.scene} scale={2.5} position-y={0} rotation-y={0} />
+    <group ref={group}>
+      <primitive object={scene} scale={2.2} position-y={-2} rotation-y={0} />
+    </group>
   );
 };
 
@@ -16,7 +26,7 @@ const EarthCanvas = () => {
   return (
     <Canvas
       shadows
-      frameloop='demand'
+      frameloop='always'
       dpr={[1, 2]}
       gl={{ preserveDrawingBuffer: true }}
       camera={{
@@ -29,6 +39,7 @@ const EarthCanvas = () => {
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
           autoRotate
+          autoRotateSpeed={0.5}
           enableZoom={false}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}

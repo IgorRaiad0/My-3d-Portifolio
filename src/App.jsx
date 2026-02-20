@@ -1,12 +1,14 @@
 import { BrowserRouter } from "react-router-dom";
 
 import {About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas } from './components';
+import Preloader from './components/Preloader';
 
 const App =() => {
   
   return (
-
-    <BrowserRouter>
+    <>
+      <Preloader />
+      <BrowserRouter>
       <div className= "relative z-0 bg-primary">
 
         <div className="bg-blue-400">
@@ -29,7 +31,7 @@ const App =() => {
 
       </div>
     </BrowserRouter>
-    
+    </>
   )
 }
 
