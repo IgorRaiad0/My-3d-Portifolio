@@ -9,8 +9,10 @@ const DesktopPC = ({ isMobile }) => {
   const computer = useGLTF(isMobile ? "./desktop_pc/scene-mobile-draco.glb" : "./desktop_pc/scene-draco.glb");
 
   useFrame((state) => {
-    const t = state.clock.getElapsedTime();
-    group.current.rotation.y = Math.sin(t * 0.3) * 0.5;
+    if (!isMobile) {
+      const t = state.clock.getElapsedTime();
+      group.current.rotation.y = Math.sin(t * 0.3) * 0.5;
+    }
   });
 
   return (

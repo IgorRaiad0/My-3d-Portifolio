@@ -42,7 +42,7 @@ const SpaceManCanvas = () => {
   return (
     <Canvas
       shadows={!isMobile}
-      frameloop={isMobile ? 'demand' : 'always'}
+      frameloop='always'
       dpr={isMobile ? [1, 1] : [1, 1.5]}
       gl={{ preserveDrawingBuffer: true, antialias: true }}
       camera={{
