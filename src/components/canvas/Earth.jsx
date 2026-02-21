@@ -41,9 +41,9 @@ const EarthCanvas = () => {
 
   return (
     <Canvas
-      shadows
+      shadows={!isMobile}
       frameloop={isMobile ? 'demand' : 'always'}
-      dpr={[1, 1.5]}
+      dpr={isMobile ? [1, 1] : [1, 1.5]}
       gl={{ preserveDrawingBuffer: true, antialias: !isMobile }}
       camera={{
         fov: 45,

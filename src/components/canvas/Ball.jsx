@@ -57,7 +57,7 @@ const BallCanvas = ({ icon }) => {
   return (
     <Canvas
       frameloop={isMobile ? 'demand' : 'always'}
-      dpr={[1, 1.5]}
+      dpr={isMobile ? [1, 1] : [1, 1.5]}
       gl={{ preserveDrawingBuffer: true, antialias: !isMobile }}
     >
       <Suspense fallback={<CanvasLoader />}>

@@ -56,7 +56,7 @@ const DesktopPCCanvas = () => {
     <Canvas
       frameloop={isMobile ? 'demand' : 'always'}
       shadows={!isMobile}
-      dpr={[1, 1.5]}
+      dpr={isMobile ? [1, 1] : [1, 1.5]}
       camera={{ position: [20, 3, 7], fov: 25 }}
       gl={{ preserveDrawingBuffer: true, antialias: !isMobile }}
     >
