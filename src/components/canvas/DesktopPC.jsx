@@ -1,12 +1,12 @@
-import React, { Suspense, useRef } from "react";
+import React, { Suspense, useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
 
-const DesktopPC = () => {
+const DesktopPC = ({ isMobile }) => {
   const group = useRef();
-  const computer = useGLTF("./desktop_pc/scene-draco.glb");
+  const computer = useGLTF(isMobile ? "./desktop_pc/scene-mobile-draco.glb" : "./desktop_pc/scene-draco.glb");
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
@@ -36,13 +36,29 @@ const DesktopPC = () => {
 };
 
 const DesktopPCCanvas = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mediaQuery.matches);
+
+    const handleMediaQueryChange = (event) => {
+      setIsMobile(event.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
+    return () => {
+      mediaQuery.removeEventListener("change", handleMediaQueryChange);
+    };
+  }, []);
+
   return (
     <Canvas
-      frameloop='always'
-      shadows
+      frameloop={isMobile ? 'demand' : 'always'}
+      shadows={!isMobile}
       dpr={[1, 1.5]}
       camera={{ position: [20, 3, 7], fov: 25 }}
-      gl={{ preserveDrawingBuffer: true }}
+      gl={{ preserveDrawingBuffer: true, antialias: !isMobile }}
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
@@ -50,7 +66,7 @@ const DesktopPCCanvas = () => {
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
-        <DesktopPC />
+        <DesktopPC isMobile={isMobile} />
       </Suspense>
 
       <Preload all />

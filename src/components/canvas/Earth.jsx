@@ -1,12 +1,12 @@
-import React, { Suspense, useEffect, useRef } from "react";
+import React, { Suspense, useEffect, useRef, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF, useAnimations } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
 
-const Earth = () => {
+const Earth = ({ isMobile }) => {
   const group = useRef();
-  const { scene, animations } = useGLTF("./spaceMan/scene.gltf");
+  const { scene, animations } = useGLTF(isMobile ? "./planet/scene-mobile-draco.glb" : "./planet/scene-draco.glb");
   const { actions } = useAnimations(animations, group);
 
   useEffect(() => {
@@ -23,12 +23,28 @@ const Earth = () => {
 };
 
 const EarthCanvas = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mediaQuery.matches);
+
+    const handleMediaQueryChange = (event) => {
+      setIsMobile(event.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
+    return () => {
+      mediaQuery.removeEventListener("change", handleMediaQueryChange);
+    };
+  }, []);
+
   return (
     <Canvas
       shadows
-      frameloop='always'
+      frameloop={isMobile ? 'demand' : 'always'}
       dpr={[1, 1.5]}
-      gl={{ preserveDrawingBuffer: true }}
+      gl={{ preserveDrawingBuffer: true, antialias: !isMobile }}
       camera={{
         fov: 45,
         near: 0.1,
@@ -44,7 +60,7 @@ const EarthCanvas = () => {
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
-        <Earth />
+        <Earth isMobile={isMobile} />
 
         <Preload all />
       </Suspense>

@@ -6,7 +6,7 @@ import CanvasLoader from "../Loader";
 
 const Computers = ({ isMobile }) => {
   const group = useRef();
-  const { scene, animations } = useGLTF("./oldComputer/scene.gltf");
+  const { scene, animations } = useGLTF(isMobile ? "./oldComputer/scene-mobile-draco.glb" : "./oldComputer/scene-draco.glb");
   const { actions } = useAnimations(animations, group);
 
   useEffect(() => {
