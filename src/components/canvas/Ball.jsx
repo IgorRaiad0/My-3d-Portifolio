@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import {
   Decal,
@@ -18,7 +18,7 @@ const Ball = (props) => {
       <ambientLight intensity={0.8} />
       <directionalLight position={[0, 0, 0.05]} />
       <mesh castShadow receiveShadow scale={2.75}>
-        <icosahedronGeometry args={[1, 1]} />
+        <icosahedronGeometry args={[1, props.isMobile ? 0 : 1]} />
         <meshStandardMaterial
           color='#fff8eb'
           polygonOffset
@@ -38,15 +38,31 @@ const Ball = (props) => {
 };
 
 const BallCanvas = ({ icon }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mediaQuery.matches);
+
+    const handleMediaQueryChange = (event) => {
+      setIsMobile(event.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
+    return () => {
+      mediaQuery.removeEventListener("change", handleMediaQueryChange);
+    };
+  }, []);
+
   return (
     <Canvas
-      frameloop='always'
+      frameloop={isMobile ? 'demand' : 'always'}
       dpr={[1, 1.5]}
-      gl={{ preserveDrawingBuffer: true }}
+      gl={{ preserveDrawingBuffer: true, antialias: !isMobile }}
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls enableZoom={false} />
-        <Ball imgUrl={icon} />
+        <Ball imgUrl={icon} isMobile={isMobile} />
       </Suspense>
 
       <Preload all />
