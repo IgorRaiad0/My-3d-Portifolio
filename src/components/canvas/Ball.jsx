@@ -58,7 +58,7 @@ const BallCanvas = ({ icon }) => {
     <Canvas
       frameloop={isMobile ? 'demand' : 'always'}
       dpr={isMobile ? [1, 1] : [1, 1.5]}
-      gl={{ preserveDrawingBuffer: true, antialias: !isMobile }}
+      gl={{ preserveDrawingBuffer: true, antialias: true }}
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls enableZoom={false} />

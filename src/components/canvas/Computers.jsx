@@ -68,11 +68,11 @@ const ComputersCanvas = () => {
 
   return (
     <Canvas
-      frameloop={isMobile ? 'demand' : 'always'}
+      frameloop='always'
       shadows={!isMobile}
       dpr={isMobile ? [1, 1] : [1, 1.5]}
       camera={{ position: [8, 6, 8], fov: 35 }}
-      gl={{ preserveDrawingBuffer: true, antialias: !isMobile }}
+      gl={{ preserveDrawingBuffer: true, antialias: true }}
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
