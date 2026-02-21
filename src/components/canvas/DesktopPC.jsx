@@ -56,7 +56,7 @@ const DesktopPCCanvas = () => {
 
   return (
     <Canvas
-      frameloop={isMobile ? 'demand' : 'always'}
+      frameloop='always'
       shadows={!isMobile}
       dpr={isMobile ? [1, 1] : [1, 1.5]}
       camera={{ position: [20, 3, 7], fov: 25 }}
