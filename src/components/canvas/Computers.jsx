@@ -28,7 +28,7 @@ const Computers = ({ isMobile }) => {
         angle={0.12}
         penumbra={1}
         intensity={1}
-        castShadow
+        castShadow={!isMobile}
         shadow-mapSize={1024}
       />
       <pointLight intensity={1} />
@@ -70,7 +70,7 @@ const ComputersCanvas = () => {
     <Canvas
       frameloop='always'
       shadows
-      dpr={[1, 2]}
+      dpr={[1, 1.5]}
       camera={{ position: [8, 6, 8], fov: 35 }}
       gl={{ preserveDrawingBuffer: true }}
     >

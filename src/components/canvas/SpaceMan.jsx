@@ -27,7 +27,7 @@ const SpaceManCanvas = () => {
     <Canvas
       shadows
       frameloop='always'
-      dpr={[1, 2]}
+      dpr={[1, 1.5]}
       gl={{ preserveDrawingBuffer: true }}
       camera={{
         fov: 50,

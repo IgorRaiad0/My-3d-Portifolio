@@ -6,7 +6,7 @@ import CanvasLoader from "../Loader";
 
 const DesktopPC = () => {
   const group = useRef();
-  const computer = useGLTF("./desktop_pc/scene.gltf");
+  const computer = useGLTF("./desktop_pc/scene-draco.glb");
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
@@ -22,7 +22,7 @@ const DesktopPC = () => {
         penumbra={1}
         intensity={1}
         castShadow
-        shadow-mapSize={1024}
+        shadow-mapSize={512}
       />
       <pointLight intensity={1} />
       <primitive
@@ -40,7 +40,7 @@ const DesktopPCCanvas = () => {
     <Canvas
       frameloop='always'
       shadows
-      dpr={[1, 2]}
+      dpr={[1, 1.5]}
       camera={{ position: [20, 3, 7], fov: 25 }}
       gl={{ preserveDrawingBuffer: true }}
     >
