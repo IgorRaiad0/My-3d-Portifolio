@@ -58,7 +58,7 @@ const About = () => {
               <i className="fab fa-github"></i>
             </a>
             <a
-              href="https://linkedin.com/in/seu-usuario"
+              href="https://www.linkedin.com/in/igor-ryan-596a8b3aa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:text-[#0000E8] transition-colors text-3xl"
@@ -66,7 +66,7 @@ const About = () => {
               <i className="fab fa-linkedin"></i>
             </a>
             <a
-              href="https://instagram.com/seu-usuario"
+              href="https://www.instagram.com/ig0rryan/profilecard/?igsh=Z3NtZGtneXhtdW4w"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:text-[#0000E8] transition-colors text-3xl"
@@ -74,7 +74,7 @@ const About = () => {
               <i className="fab fa-instagram"></i>
             </a>
             <a
-              href="https://youtube.com/seu-canal"
+              href="https://www.youtube.com/@igorryanbacelarfrota5567"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:text-[#0000E8] transition-colors text-3xl"
@@ -83,7 +83,7 @@ const About = () => {
             </a>
 
             <a
-              href="/curriculo.pdf"
+              href="./src/docs/curriculo.pdf"
               download
               className="inline-flex items-center gap-2 border-2 border-white text-white hover:bg-[#0000E8] hover:border-[#0000E8] font-medium py-2 px-5 rounded-full transition-all mt-3 lg:mt-0"
             >
@@ -102,7 +102,7 @@ const About = () => {
             variants={fadeIn("", "", 0.1, 1)}
             className="mt-6 text-secondary text-[17px] max-w-4xl leading-[30px] text-justify"
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam modi alias pariatur recusandae? Fuga, dicta qui cupiditate sequi ex necessitatibus eligendi rerum, cumque numquam natus neque, deleniti veniam repellendus? Nobis!
+            Atualmente sou um estudante do sexto período de Análise e Desenvolvimento de Sistemas no Instituto Federal do Maranhão - Campus Coelho Neto, apaixonado por tecnologia e soluções inovadoras. Além disso, possuo formação técnica em Automação Industrial pelo mesmo instituto. Membro do núcleo de robótica universitária, onde já ministrei duas oficinas no Seminário de Iniciação Científica 2024 e 2025. Entre alguns feitos, destaca-se o recente terceiro lugar no FIRA Robocup 2024 etapa estadual, 3º lugar no FIRA Robocup etapa nacional, e primeiro lugar no universo IF-Robótica junto a sua equipe. Além do primeiro lugar no Universo IFMA com um projeto de extensão voltado para o desenvolvimento sustentável na categoria de engenharia. 
           </motion.p>
         </div>
       </div>
