@@ -6,7 +6,7 @@ import CanvasLoader from "../Loader";
 
 const SpaceMan = ({ isMobile }) => {
   const group = useRef();
-  const { scene, animations } = useGLTF(isMobile ? "./spaceMan/scene-mobile-draco.glb" : "./spaceMan/scene.gltf");
+  const { scene, animations } = useGLTF(isMobile ? "/spaceMan/scene-mobile-draco.glb" : "/spaceMan/scene-draco.glb");
   const { actions } = useAnimations(animations, group);
 
   useEffect(() => {
@@ -67,5 +67,10 @@ const SpaceManCanvas = () => {
     </Canvas>
   );
 };
+
+
+
+useGLTF.preload("/spaceMan/scene-draco.glb");
+useGLTF.preload("/spaceMan/scene-mobile-draco.glb");
 
 export default SpaceManCanvas;

@@ -6,7 +6,7 @@ import CanvasLoader from "../Loader";
 
 const DesktopPC = ({ isMobile }) => {
   const group = useRef();
-  const computer = useGLTF(isMobile ? "./desktop_pc/scene-mobile-draco.glb" : "./desktop_pc/scene-draco.glb");
+  const computer = useGLTF(isMobile ? "/desktop_pc/scene-mobile-draco.glb" : "/desktop_pc/scene-draco.glb");
 
   useFrame((state) => {
     if (!isMobile) {
@@ -75,5 +75,9 @@ const DesktopPCCanvas = () => {
     </Canvas>
   );
 };
+
+
+useGLTF.preload("/desktop_pc/scene-draco.glb");
+useGLTF.preload("/desktop_pc/scene-mobile-draco.glb");
 
 export default DesktopPCCanvas;
