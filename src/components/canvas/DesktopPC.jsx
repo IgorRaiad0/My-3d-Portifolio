@@ -54,6 +54,14 @@ const DesktopPCCanvas = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (isMobile) {
+      useGLTF.preload("/desktop_pc/scene-mobile-draco.glb");
+    } else {
+      useGLTF.preload("/desktop_pc/scene-draco.glb");
+    }
+  }, [isMobile]);
+
   return (
     <Canvas
       frameloop='always'
@@ -75,9 +83,5 @@ const DesktopPCCanvas = () => {
     </Canvas>
   );
 };
-
-
-useGLTF.preload("/desktop_pc/scene-draco.glb");
-useGLTF.preload("/desktop_pc/scene-mobile-draco.glb");
 
 export default DesktopPCCanvas;

@@ -7,6 +7,15 @@ const Preloader = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Remove o carregador estático do index.html assim que o componente React montar
+    const staticLoader = document.getElementById('initial-loader');
+    if (staticLoader) {
+      // Pequeno timeout para garantir que o React já renderizou sua versão antes de tirar a estática
+      setTimeout(() => {
+        staticLoader.remove();
+      }, 100);
+    }
+
     if (progress === 100) {
       // Pequeno atraso para suavizar a transição após carregar tudo
       const timeout = setTimeout(() => {

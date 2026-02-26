@@ -39,6 +39,14 @@ const SpaceManCanvas = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (isMobile) {
+      useGLTF.preload("/spaceMan/scene-mobile-draco.glb");
+    } else {
+      useGLTF.preload("/spaceMan/scene-draco.glb");
+    }
+  }, [isMobile]);
+
   return (
     <Canvas
       shadows={!isMobile}
@@ -67,10 +75,5 @@ const SpaceManCanvas = () => {
     </Canvas>
   );
 };
-
-
-
-useGLTF.preload("/spaceMan/scene-draco.glb");
-useGLTF.preload("/spaceMan/scene-mobile-draco.glb");
 
 export default SpaceManCanvas;

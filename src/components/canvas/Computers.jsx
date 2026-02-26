@@ -46,25 +46,28 @@ const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    //
-    const mediaQuery = window.matchMedia("(max-width: 500px)");
-
-    // 
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
     setIsMobile(mediaQuery.matches);
 
-    //
     const handleMediaQueryChange = (event) => {
       setIsMobile(event.matches);
     };
 
-    //
     mediaQuery.addEventListener("change", handleMediaQueryChange);
 
-    //
     return () => {
       mediaQuery.removeEventListener("change", handleMediaQueryChange);
     };
   }, []);
+
+  // Preload only what is needed for the current device
+  useEffect(() => {
+    if (isMobile) {
+      useGLTF.preload("/oldComputer/scene-mobile-draco.glb");
+    } else {
+      useGLTF.preload("/oldComputer/scene-draco.glb");
+    }
+  }, [isMobile]);
 
   return (
     <Canvas
@@ -87,9 +90,5 @@ const ComputersCanvas = () => {
     </Canvas>
   );
 };
-
-
-useGLTF.preload("/oldComputer/scene-draco.glb");
-useGLTF.preload("/oldComputer/scene-mobile-draco.glb");
 
 export default ComputersCanvas;
