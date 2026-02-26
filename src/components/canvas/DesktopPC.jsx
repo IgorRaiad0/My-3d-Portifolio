@@ -38,7 +38,12 @@ const DesktopPC = ({ isMobile }) => {
 };
 
 const DesktopPCCanvas = () => {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window !== "undefined") {
+      return window.matchMedia("(max-width: 768px)").matches;
+    }
+    return false;
+  });
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 768px)");

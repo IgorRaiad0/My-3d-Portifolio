@@ -5,7 +5,7 @@ import { styles } from "../styles";
 import { services } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
-import profilePhoto from "../assets/profile.jpeg";
+import profilePhoto from "../assets/profile.webp";
 
 const ServiceCard = ({ index, title, icon }) => (
   <Tilt className="xs:w-[250px] w-full">
@@ -102,7 +102,7 @@ const About = () => {
             variants={fadeIn("", "", 0.1, 1)}
             className="mt-6 text-secondary text-[17px] max-w-4xl leading-[30px] text-justify"
           >
-            Atualmente sou um estudante do sexto período de Análise e Desenvolvimento de Sistemas no Instituto Federal do Maranhão - Campus Coelho Neto, apaixonado por tecnologia e soluções inovadoras. Além disso, possuo formação técnica em Automação Industrial pelo mesmo instituto. Membro do núcleo de robótica universitária, onde já ministrei duas oficinas no Seminário de Iniciação Científica 2024 e 2025. Entre alguns feitos, destaca-se o recente terceiro lugar no FIRA Robocup 2024 etapa estadual, 3º lugar no FIRA Robocup etapa nacional, e primeiro lugar no universo IF-Robótica junto a sua equipe. Além do primeiro lugar no Universo IFMA com um projeto de extensão voltado para o desenvolvimento sustentável na categoria de engenharia. 
+            Atualmente sou um estudante do sexto período de Análise e Desenvolvimento de Sistemas no Instituto Federal do Maranhão - Campus Coelho Neto, apaixonado por tecnologia e soluções inovadoras. Além disso, possuo formação técnica em Automação Industrial pelo mesmo instituto. Membro do núcleo de robótica universitária, onde já ministrei duas oficinas no Seminário de Iniciação Científica 2024 e 2025. Entre alguns feitos, destaca-se o recente terceiro lugar no FIRA Robocup 2024 etapa estadual, 3º lugar no FIRA Robocup etapa nacional, e primeiro lugar no universo IF-Robótica junto a sua equipe. Além do primeiro lugar no Universo IFMA com um projeto de extensão voltado para o desenvolvimento sustentável na categoria de engenharia.
           </motion.p>
         </div>
       </div>
