@@ -98,6 +98,17 @@ const Works = () => {
           <ProjectCard key={`project-${index}`} index={index} {...project} />
         ))}
       </div>
+
+      <div className="mt-14 flex justify-center items-center">
+        <a
+          href="https://github.com/IgorRaiad0"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary hover:bg-[#0000E8] transition-colors"
+        >
+          Ver Mais Projetos
+        </a>
+      </div>
     </>
   );
 };
