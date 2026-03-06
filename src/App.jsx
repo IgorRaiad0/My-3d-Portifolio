@@ -1,6 +1,6 @@
 import { BrowserRouter } from "react-router-dom";
 
-import { About, Contact, Experience, Hero, Navbar, Tech, Works, StarsCanvas } from './components';
+import { About, Contact, Experience, Hero, Navbar, Tech, Works, StarsCanvas, Footer } from './components';
 import Preloader from './components/Preloader';
 
 const App = () => {
@@ -20,13 +20,14 @@ const App = () => {
             <About />
           </div>
           <Experience />
-           <Tech/> 
+          <Tech />
           <Works />
           <div className="relative z-0">
             <Contact />
             <StarsCanvas />
           </div>
 
+          <Footer />
 
         </div>
       </BrowserRouter>
