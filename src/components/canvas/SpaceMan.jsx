@@ -57,7 +57,7 @@ const SpaceManCanvas = () => {
       shadows={!isMobile}
       frameloop='always'
       dpr={isMobile ? [1, 1] : [1, 1.5]}
-      gl={{ preserveDrawingBuffer: true, antialias: true }}
+      gl={{ preserveDrawingBuffer: true, antialias: !isMobile }}
       camera={{
         fov: 50,
         near: 0.1,

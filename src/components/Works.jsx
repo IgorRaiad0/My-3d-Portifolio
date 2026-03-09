@@ -87,7 +87,7 @@ const Works = () => {
         >
           Os projetos a seguir demonstram minhas habilidades e experiência através de
           exemplos reais do meu trabalho. Cada projeto é brevemente descrito com
-          links para repositórios de código e demos ao vivo. Isso reflete minha
+          links para repositórios de código e demonstrações ao vivo. Isso reflete minha
           capacidade de resolver problemas complexos, trabalhar com diferentes tecnologias
           e gerenciar projetos de forma eficaz.
         </motion.p>

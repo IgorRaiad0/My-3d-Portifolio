@@ -55,7 +55,7 @@ const services = [
     icon: backend,
   },
   {
-    title: "Robotica",
+    title: "Robótica",
     icon: creator,
   },
 ];
@@ -117,13 +117,13 @@ const technologies = [
 
 const experiences = [
   {
-    title: "TECNOLOGO EM ANÁLISE E DESENVOLVIMENTO DE SISTEMAS",
+    title: "TECNÓLOGO EM ANÁLISE E DESENVOLVIMENTO DE SISTEMAS",
     company_name: "Instituto Federal do Maranhão",
     icon: ifma,
     iconBg: "#383E56",
-    date: " Cursando 6º Periódo",
+    date: "Cursando 6º Período",
     points: [
-      ,
+
     ],
   },
   {
@@ -133,17 +133,17 @@ const experiences = [
     iconBg: "#E6DEDD",
     date: "Setembro de 2021 - Março de 2023",
     points: [
-      ,
+
     ],
   },
-  
+
 ];
 
 const projects = [
   {
     name: "Connect App",
     description:
-      "lorem epsum",
+      "Lorem ipsum.",
     tags: [
       {
         name: "React-native",
@@ -164,14 +164,14 @@ const projects = [
   {
     name: "Sistema de Votação Web",
     description:
-      "lorem epsum",
+      "Lorem ipsum.",
     tags: [
       {
         name: "Vuejs",
         color: "blue-text-gradient",
       },
       {
-        name: "PotgreeSQL",
+        name: "PostgreSQL",
         color: "green-text-gradient",
       },
       {
@@ -183,9 +183,9 @@ const projects = [
     source_code_link: "https://github.com/IgorRaiad0/Votacao_backend",
   },
   {
-    name: "Pocket Perssoal",
+    name: "Pocket Pessoal",
     description:
-      "Lorem epsum",
+      "Lorem ipsum.",
     tags: [
       {
         name: "React-Native",
