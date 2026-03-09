@@ -8,10 +8,8 @@ const Stars = (props) => {
   const [sphere] = useState(() => random.inSphere(new Float32Array(props.isMobile ? 804 : 5001), { radius: 1.2 }));
 
   useFrame((state, delta) => {
-    if (!props.isMobile) {
-      ref.current.rotation.x -= delta / 10;
-      ref.current.rotation.y -= delta / 15;
-    }
+    ref.current.rotation.x -= delta / 10;
+    ref.current.rotation.y -= delta / 15;
   });
 
   return (
@@ -48,7 +46,7 @@ const StarsCanvas = () => {
 
   return (
     <div className='w-full h-auto absolute inset-0 z-[-1]'>
-      <Canvas frameloop={isMobile ? 'demand' : 'always'} camera={{ position: [0, 0, 1] }} dpr={isMobile ? [1, 1] : [1, 1.5]}>
+      <Canvas frameloop='always' camera={{ position: [0, 0, 1] }} dpr={isMobile ? [1, 1] : [1, 1.5]}>
         <Suspense fallback={null}>
           <Stars isMobile={isMobile} />
         </Suspense>
