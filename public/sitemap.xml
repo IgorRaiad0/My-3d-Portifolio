@@ -1,39 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org">
   <url>
-    <loc>https://igor-ryan-portifolio.vercel.app/</loc>
-    <lastmod>2024-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://igor-ryan-portifolio.vercel.app/#sobre</loc>
-    <lastmod>2024-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://igor-ryan-portifolio.vercel.app/#experiencia</loc>
-    <lastmod>2024-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://igor-ryan-portifolio.vercel.app/#tecnologias</loc>
-    <lastmod>2024-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://igor-ryan-portifolio.vercel.app/#projetos</loc>
-    <lastmod>2024-01-01</lastmod>
+    <loc>https://igor-ryan-portifolio.vercel.app</loc>
+    <lastmod>2026-03-10</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://igor-ryan-portifolio.vercel.app/#contato</loc>
-    <lastmod>2024-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>1.0</priority>
   </url>
 </urlset>
