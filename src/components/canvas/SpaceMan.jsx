@@ -17,7 +17,7 @@ const SpaceMan = ({ isMobile }) => {
 
   return (
     <group ref={group}>
-      <primitive object={scene} scale={1.8} position-y={-1.1} rotation-y={0} />
+      <primitive object={scene} scale={1.8} position-y={isMobile ? -0.5 : -1.1} rotation-y={0} />
     </group>
   );
 };
@@ -78,12 +78,12 @@ const SpaceManCanvas = () => {
     <div ref={containerRef} className="relative w-full h-full">
       <CanvasLoader />
       <Canvas
-        shadows={!isMobile}
+        shadows
         frameloop={isInView ? 'always' : 'never'}
-        dpr={isMobile ? [1, 1] : [1, 1.5]}
-        gl={{ preserveDrawingBuffer: true, antialias: !isMobile }}
+        dpr={[1, 1.5]}
+        gl={{ preserveDrawingBuffer: true, antialias: true }}
         camera={{
-          fov: 50,
+          fov: isMobile ? 60 : 50,
           near: 0.1,
           far: 200,
           position: [-4, 1, 6],

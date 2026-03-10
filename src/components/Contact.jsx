@@ -125,9 +125,26 @@ const Contact = () => {
 
       <motion.div
         variants={slideIn("right", "tween", 0.2, 1)}
-        className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px]'
+        className='xl:flex-1 xl:h-auto md:h-[550px] h-[400px] relative'
       >
         <SpaceManCanvas />
+        
+        {/* Scroll indicator - only on mobile */}
+        <div className='md:hidden absolute bottom-5 w-full flex justify-center items-center'>
+          <div className='w-[35px] h-[64px] rounded-3xl border-4 border-[#0000E8] flex justify-center items-start p-2'>
+            <motion.div
+              animate={{
+                y: [0, 24, 0],
+              }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                repeatType: "loop",
+              }}
+              className='w-3 h-3 rounded-full bg-[#0000E8] mb-1'
+            />
+          </div>
+        </div>
       </motion.div>
     </div>
   );

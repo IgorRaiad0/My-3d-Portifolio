@@ -96,10 +96,10 @@ const DesktopPCCanvas = () => {
       <CanvasLoader />
       <Canvas
         frameloop={isInView ? 'always' : 'never'}
-        shadows={!isMobile}
-        dpr={isMobile ? [1, 1] : [1, 1.5]}
+        shadows
+        dpr={[1, 1.5]}
         camera={{ position: [20, 3, 7], fov: 25 }}
-        gl={{ preserveDrawingBuffer: true, antialias: !isMobile }}
+        gl={{ preserveDrawingBuffer: true, antialias: true }}
       >
         <Suspense fallback={null}>
           <OrbitControls

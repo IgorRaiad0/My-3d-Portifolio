@@ -46,7 +46,7 @@ const StarsCanvas = () => {
 
   return (
     <div className='w-full h-auto absolute inset-0 z-[-1]'>
-      <Canvas frameloop='always' camera={{ position: [0, 0, 1] }} dpr={isMobile ? [1, 1] : [1, 1.5]}>
+      <Canvas frameloop='always' camera={{ position: [0, 0, 1] }} dpr={[1, 1.5]}>
         <Suspense fallback={null}>
           <Stars isMobile={isMobile} />
         </Suspense>
