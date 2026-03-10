@@ -50,6 +50,9 @@ const ComputersCanvas = () => {
     return false;
   });
 
+  const containerRef = useRef(null);
+  const [isInView, setIsInView] = useState(true);
+
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 768px)");
     setIsMobile(mediaQuery.matches);
@@ -65,6 +68,25 @@ const ComputersCanvas = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, []);
+
   // Preload only what is needed for the current device
   useEffect(() => {
     if (isMobile) {
@@ -75,24 +97,27 @@ const ComputersCanvas = () => {
   }, [isMobile]);
 
   return (
-    <Canvas
-      frameloop='always'
-      shadows={!isMobile}
-      dpr={isMobile ? [1, 1] : [1, 1.5]}
-      camera={{ position: [8, 6, 8], fov: 35 }}
-      gl={{ preserveDrawingBuffer: true, antialias: !isMobile }}
-    >
-      <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls
-          enableZoom={false}
-          maxPolarAngle={Math.PI / 2.5}
-          minPolarAngle={Math.PI / 3}
-        />
-        <Computers isMobile={isMobile} />
-      </Suspense>
+    <div ref={containerRef} className="relative w-full h-full">
+      <CanvasLoader />
+      <Canvas
+        frameloop={isInView ? 'always' : 'never'}
+        shadows={!isMobile}
+        dpr={isMobile ? [1, 1] : [1, 1.5]}
+        camera={{ position: [8, 6, 8], fov: 35 }}
+        gl={{ preserveDrawingBuffer: true, antialias: !isMobile }}
+      >
+        <Suspense fallback={null}>
+          <OrbitControls
+            enableZoom={false}
+            maxPolarAngle={Math.PI / 2.5}
+            minPolarAngle={Math.PI / 3}
+          />
+          <Computers isMobile={isMobile} />
+        </Suspense>
 
-      <Preload all />
-    </Canvas>
+        <Preload all />
+      </Canvas>
+    </div>
   );
 };
 

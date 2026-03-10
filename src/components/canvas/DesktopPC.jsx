@@ -29,8 +29,8 @@ const DesktopPC = ({ isMobile }) => {
       <pointLight intensity={1} />
       <primitive
         object={computer.scene}
-        scale={1.3}
-        position={[0, -2, -1.5]}
+        scale={isMobile ? 1.0 : 0.75}
+        position={isMobile ? [-1, -1.9, -1.5] : [0, -2.5, -1.5]}
         rotation={[-0.01, -0.2, -0.1]}
       />
     </group>
@@ -44,6 +44,9 @@ const DesktopPCCanvas = () => {
     }
     return false;
   });
+
+  const containerRef = useRef(null);
+  const [isInView, setIsInView] = useState(true);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 768px)");
@@ -60,6 +63,25 @@ const DesktopPCCanvas = () => {
   }, []);
 
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
     if (isMobile) {
       useGLTF.preload("/desktop_pc/scene-mobile-draco.glb");
     } else {
@@ -67,25 +89,30 @@ const DesktopPCCanvas = () => {
     }
   }, [isMobile]);
 
-  return (
-    <Canvas
-      frameloop='always'
-      shadows={!isMobile}
-      dpr={isMobile ? [1, 1] : [1, 1.5]}
-      camera={{ position: [20, 3, 7], fov: 25 }}
-      gl={{ preserveDrawingBuffer: true, antialias: !isMobile }}
-    >
-      <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls
-          enableZoom={false}
-          maxPolarAngle={Math.PI / 2}
-          minPolarAngle={Math.PI / 2}
-        />
-        <DesktopPC isMobile={isMobile} />
-      </Suspense>
 
-      <Preload all />
-    </Canvas>
+
+  return (
+    <div ref={containerRef} className="relative w-full h-full">
+      <CanvasLoader />
+      <Canvas
+        frameloop={isInView ? 'always' : 'never'}
+        shadows={!isMobile}
+        dpr={isMobile ? [1, 1] : [1, 1.5]}
+        camera={{ position: [20, 3, 7], fov: 25 }}
+        gl={{ preserveDrawingBuffer: true, antialias: !isMobile }}
+      >
+        <Suspense fallback={null}>
+          <OrbitControls
+            enableZoom={false}
+            maxPolarAngle={Math.PI / 2}
+            minPolarAngle={Math.PI / 2}
+          />
+          <DesktopPC isMobile={isMobile} />
+        </Suspense>
+
+        <Preload all />
+      </Canvas>
+    </div>
   );
 };
 

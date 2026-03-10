@@ -17,7 +17,7 @@ const SpaceMan = ({ isMobile }) => {
 
   return (
     <group ref={group}>
-      <primitive object={scene} scale={1.8} position-y={-1.5} rotation-y={0} />
+      <primitive object={scene} scale={1.8} position-y={-1.1} rotation-y={0} />
     </group>
   );
 };
@@ -29,6 +29,9 @@ const SpaceManCanvas = () => {
     }
     return false;
   });
+
+  const containerRef = useRef(null);
+  const [isInView, setIsInView] = useState(true);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 768px)");
@@ -45,6 +48,25 @@ const SpaceManCanvas = () => {
   }, []);
 
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
     if (isMobile) {
       useGLTF.preload("/spaceMan/scene-mobile-draco.glb");
     } else {
@@ -53,31 +75,34 @@ const SpaceManCanvas = () => {
   }, [isMobile]);
 
   return (
-    <Canvas
-      shadows={!isMobile}
-      frameloop='always'
-      dpr={isMobile ? [1, 1] : [1, 1.5]}
-      gl={{ preserveDrawingBuffer: true, antialias: !isMobile }}
-      camera={{
-        fov: 50,
-        near: 0.1,
-        far: 200,
-        position: [-4, 3, 6],
-      }}
-    >
-      <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls
-          autoRotate
-          autoRotateSpeed={0.5}
-          enableZoom={false}
-          maxPolarAngle={Math.PI / 2}
-          minPolarAngle={Math.PI / 2}
-        />
-        <SpaceMan isMobile={isMobile} />
+    <div ref={containerRef} className="relative w-full h-full">
+      <CanvasLoader />
+      <Canvas
+        shadows={!isMobile}
+        frameloop={isInView ? 'always' : 'never'}
+        dpr={isMobile ? [1, 1] : [1, 1.5]}
+        gl={{ preserveDrawingBuffer: true, antialias: !isMobile }}
+        camera={{
+          fov: 50,
+          near: 0.1,
+          far: 200,
+          position: [-4, 1, 6],
+        }}
+      >
+        <Suspense fallback={null}>
+          <OrbitControls
+            autoRotate
+            autoRotateSpeed={0.5}
+            enableZoom={false}
+            maxPolarAngle={Math.PI / 2}
+            minPolarAngle={Math.PI / 2}
+          />
+          <SpaceMan isMobile={isMobile} />
 
-        <Preload all />
-      </Suspense>
-    </Canvas>
+          <Preload all />
+        </Suspense>
+      </Canvas>
+    </div>
   );
 };
 

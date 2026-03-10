@@ -76,14 +76,14 @@ const Works = () => {
         <h2 className={`${styles.sectionHeadText}`}>Projetos.</h2>
       </motion.div>
 
-      <div className='w-full h-[200px] my-8'>
+      <div className='w-full h-[200px] md:h-[450px] mt-0 md:mt-[-30px] mb-0'>
         <DesktopPCCanvas />
       </div>
 
       <div className='w-full flex'>
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
-          className='mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]'
+          className='mt-3 text-secondary text-[17px] max-w-3xl leading-[30px] text-justify'
         >
           Os projetos a seguir demonstram minhas habilidades e experiência através de
           exemplos reais do meu trabalho. Cada projeto é brevemente descrito com
