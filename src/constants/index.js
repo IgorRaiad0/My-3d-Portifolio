@@ -22,8 +22,9 @@ import {
   ifma,
   carrent,
   jobit,
-  tripguide,
+  pocket,
   threejs,
+  portifolio
 } from "../assets";
 
 export const navLinks = [
@@ -200,8 +201,30 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: tripguide,
+    image: pocket,
     source_code_link: "https://github.com/IgorRaiad0/Pocket-Personal-Trainer-APP",
+  },
+
+  {
+    name: "My 3d Portifolio",
+    description:
+      "Meu portifolio, pessoal desenvolvido para o treino e estudo de react, threejs e tailwind. Nele procurei treinar uma arquitetura modular e escalável orientada a componentes.",
+    tags: [
+      {
+        name: "React",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Threejs",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Tailwind",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: portifolio,
+    source_code_link: "https://github.com/IgorRaiad0/My-3d-Portifolio.git",
   },
 ];
 

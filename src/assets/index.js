@@ -29,7 +29,8 @@ import ifma from "./company/ifma.png";
 
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
-import tripguide from "./tripguide.png";
+import pocket from "./pocket-personal.png";
+import portifolio from "./portfolio.png";
 
 export {
   logo,
@@ -60,5 +61,6 @@ export {
   ifma,
   carrent,
   jobit,
-  tripguide,
+  pocket,
+  portifolio
 };
