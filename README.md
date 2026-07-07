@@ -43,13 +43,6 @@ Este portfólio foi desenvolvido para demonstrar minhas habilidades como desenvo
 - **Projetos** - Galeria de projetos com links para repositórios
 - **Contato** - Formulário funcional de contato
 
-### Otimizações
-- Design totalmente responsivo
-- Performance otimizada para mobile e desktop
-- Lazy loading de modelos 3D
-- SEO otimizado com meta tags e sitemap
-- Intersection Observer para performance
-
 ## Estrutura do Projeto
 
 ```
@@ -74,56 +67,13 @@ src/
 └── styles.js           # Estilos globais
 ```
 
-## Instalação e Execução
-
-### Pré-requisitos
-- Node.js (versão 16 ou superior)
-- npm ou yarn
-
-### Passos para execução local
-
-1. Clone o repositório
-```bash
-git clone https://github.com/IgorRaiad0/My-3d-Portifolio.git
-cd My-3d-Portifolio
-```
-
-2. Instale as dependências
-```bash
-npm install
-```
-
-3. Configure as variáveis de ambiente
-Crie um arquivo `.env` na raiz do projeto:
-```env
-VITE_APP_EMAILJS_SERVICE_ID=seu_service_id
-VITE_APP_EMAILJS_TEMPLATE_ID=seu_template_id
-VITE_APP_EMAILJS_PUBLIC_KEY=sua_public_key
-```
-
-4. Execute o projeto
-```bash
-npm run dev
-```
-
-5. Acesse no navegador
-```
-http://localhost:5173
-```
-
-## Build para Produção
-
-```bash
-npm run build
-```
-
-Os arquivos otimizados serão gerados na pasta `dist/`.
-
-## Deploy
-
-O projeto está configurado para deploy automático no Vercel. Qualquer push para a branch main dispara um novo deploy.
-
 ## Otimizações Implementadas
+
+- Design totalmente responsivo
+- Performance otimizada para mobile e desktop
+- Lazy loading de modelos 3D
+- SEO otimizado com meta tags e sitemap
+- Intersection Observer para performance
 
 ### Performance
 - Modelos 3D otimizados com compressão Draco
