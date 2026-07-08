@@ -24,7 +24,11 @@ import {
   jobit,
   pocket,
   threejs,
-  portifolio
+  portifolio,
+  java,
+  python,
+  sql,
+  arduino,
 } from "../assets";
 
 export const navLinks = [
@@ -83,8 +87,8 @@ const technologies = [
     icon: reactjs,
   },
   {
-    name: "Redux Toolkit",
-    icon: redux,
+    name: "Python",
+    icon: python,
   },
   {
     name: "Tailwind CSS",
@@ -99,20 +103,24 @@ const technologies = [
     icon: mongodb,
   },
   {
-    name: "Three JS",
-    icon: threejs,
+    name: "SQL",
+    icon: sql,
   },
   {
     name: "git",
     icon: git,
   },
   {
-    name: "figma",
-    icon: figma,
+    name: "Java",
+    icon: java,
   },
   {
-    name: "docker",
+    name: "Docker",
     icon: docker,
+  },
+  {
+    name: "Micro Cont.",
+    icon: arduino,
   },
 ];
 
@@ -144,7 +152,7 @@ const projects = [
   {
     name: "Connect App",
     description:
-      "Lorem ipsum.",
+      "Aplicativo desenvolvido em equipe pela 1° turma de ADS do IFMA campus Coelho Neto. Usado duranto o evento Connect Ifma. Atuei sendo desenvolvedor no backend e QA da aplicação.",
     tags: [
       {
         name: "React-native",
@@ -165,7 +173,7 @@ const projects = [
   {
     name: "Sistema de Votação Web",
     description:
-      "Lorem ipsum.",
+      "Sistema web desenvolvido na faculdade, com objetivo de gerir e automatizar as votações da camara de vereadores. Projeto desenvolvido em grupo com Frontend e Backend completo, onde atuei como desenvolvedor no backend usando a arquitetura MVC.",
     tags: [
       {
         name: "Vuejs",
@@ -184,9 +192,9 @@ const projects = [
     source_code_link: "https://github.com/IgorRaiad0/Votacao_backend",
   },
   {
-    name: "Pocket Pessoal",
+    name: "Pocket Perssonal Trainer",
     description:
-      "Lorem ipsum.",
+      "Aplicativo desenvolvido com React-Native. Com o objetivo de treinar o consumo de APIS de LLMS. Aplicativo que gera um treino personalizado baseado nas respostas de um questinário.",
     tags: [
       {
         name: "React-Native",

@@ -20,6 +20,10 @@ import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
+import java from "./tech/java.svg";
+import python from "./tech/python.svg";
+import sql from "./tech/sql.svg";
+import arduino from "./tech/arduino.svg";
 
 import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
@@ -62,5 +66,9 @@ export {
   carrent,
   jobit,
   pocket,
-  portifolio
+  portifolio,
+  java,
+  python,
+  sql,
+  arduino,
 };

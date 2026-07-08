@@ -14,7 +14,7 @@ const Footer = () => {
                 <div className="text-secondary text-[14px] hover:text-white transition-colors">
                     <a href="mailto:igorryanbacelarfrota@gmail.com" className="flex items-center gap-2">
                         <i className="fas fa-envelope"></i>
-                        igorryanbacelarfrota@gmail.com
+                        igorryann75@gmail.com
                     </a>
                 </div>
 
